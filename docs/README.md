@@ -26,10 +26,22 @@ This project implements a basic social networking application using Python for t
 ## Setup
 
 1. Install Neo4j: `brew install neo4j` (or download Neo4j Desktop/Server)
-2. Install Python dependencies: `pip install -r requirements.txt`
-3. Start the system: `./manage_system.sh start`
+2. Start Neo4j for the first time: `./manage_system.sh start`
+3. Set up a Python virtual environment (optional but recommended):
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On macOS/Linux; use venv\Scripts\activate on Windows
+   ```
+4. Set the initial Neo4j password:
+   - Open http://localhost:7474 in your browser
+   - Log in with username: neo4j, password: neo4j
+   - Follow prompts to set a new password (e.g., orbit123)
+   - It's tied to the local Neo4j installation, not the project code—so each fresh setup (e.g., on a new machine or after reinstalling Neo4j) requires it.
+5. Install Python dependencies: `pip install -r requirements.txt`
 
 ## Running
+
+Activate the virtual environment if using one: `source venv/bin/activate`
 
 `python src/main.py`
 
