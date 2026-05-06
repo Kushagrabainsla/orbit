@@ -58,7 +58,7 @@ class Database:
 
     def get_mutual_connections(self, user1, user2):
         query = """
-        MATCH (u1:User {username: $user1})-[:FOLLOWS]->(m:User)-[:FOLLOWS]->(u2:User {username: $user2})
+        MATCH (u1:User {username: $user1})-[:FOLLOWS]->(m:User)<-[:FOLLOWS]-(u2:User {username: $user2})
         RETURN m.username
         """
         return [r["m.username"] for r in self.run_query(query, {"user1": user1, "user2": user2})]
